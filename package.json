@@ -1,0 +1,20 @@
+{
+  "name": "N-Cast-Service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKAJE-FEC-BLD09/N-Cast-Service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKAJE-FEC-BLD09/N-Cast-Service/issues"
+  },
+  "homepage": "https://github.com/NKAJE-FEC-BLD09/N-Cast-Service#readme"
+}
