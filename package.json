@@ -1,11 +1,12 @@
 {
-  "name": "N-Cast-Service",
+  "name": "n-cast-service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
