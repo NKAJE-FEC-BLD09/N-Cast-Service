@@ -11,7 +11,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        Creation Station
+        <h2>Creation Station</h2>
       </div>
     )
   }
