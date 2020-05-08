@@ -1,4 +1,5 @@
-const { Pool, Client } = require('pg');
+let Promise = require('bluebird');
+const { Pool } = require('pg');
 
 const pool = new Pool({
   "user": "nkaje",
@@ -9,62 +10,45 @@ const pool = new Pool({
 })
 
 //QUERIES HERE
-// const client = pool.connect();
-// getActorsInMovie (name and image)
-const getMovies = async (id, req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM movie WHERE id = $1, [id]');
-    res.status(200).send(result.row);
-  } catch (err) {
-    res.status(404).send(err);
-  }
-  }
+const queryArr = [
+'SELECT * FROM movie', 
+'SELECT * FROM actor WHERE movieid =$1', 
+'SELECT * FROM character WHERE movieid = $1',
+'SELECT * FROM actordescription WHERE actorid = $1',
+'SELECT * FROM quote WHERE characterid = $1',
+'SELECT * FROM actorsinmovies WHERE movieid = $1'
+];
 
-const getActors = async (id, req, res) => {
-  try {
-    const result = await pool.query('SELECT name, image FROM actor WHERE movieid =$1, [id]');
-    res.status(200).send(result.row)
-  } catch (err) {
-    res.status(404).send(err);
-  }
-}
-
-//getCharacterInMovie (name)
-const getCharacters = async (id, req, res) => {
-  try {
-    const result = await pool.query('SELECT name FROM character WHERE movieid = $1, [id]');
-    res.status(200).send(result.row);
-  } catch (err) {
-    res.status(404).send(err);
-  }
-}
-
-//modal actor (name, image, and description)
-const getModalActorInfo = async (movieid, actorid, req, res) => {
-  try {
-    const resultDescription = await pool.query('SELECT description FROM actordescription WHERE actorid = $2, [movieid, actorid]');
-    const resultActor = await pool.query('SELECT name, image FROM actor WHERE movieid = $1, [movieid, actorid]');
-    res.status(200).send(resultDescription.row, resultActor.row);
-  } catch (err) {
-    res.status(404).send(err);
-  }
+const getQuery = (id) => {
+  console.log('made it')
+    for (let query of queryArr) {
+      return new Promise((resolve, reject) => {
+        pool.query(query, [id], (err, result) => {
+          if (err) {
+            console.log(err);
+            reject(err);
+          }
+          console.log(result);
+          resolve(result);
+        })
+      })
+    }
 }
 
 
-//modal character (quotes and character name)
-const getModalCharacterInfo = async (id, req, res) => {
-  try {
-    const resultQuote = await pool.query('SELECT quote FROM quote WHERE characterid = $1, [id]');
-    const resultCharacter = await pool.query('SELECT name FROM quote WHERE id = $1, [id]');
-    res.status(200).send(resultQuote.row, resultCharacter.row);
-  } catch (err) {
-    res.status(404).send(err);
-  }
-}
+module.exports = {
+getQuery
+}; 
 
-// module.exports = {
-// getActorsInMovie,
-// getCharacterInMovie,
-// getModalActorInfo,
-// getModalCharacterInfo
-//}; 
+//try {
+// let result = await pool.query(queryArr[1], [id], (err, result) => {
+//   if (err) {
+//     console.log(err)
+//     return (err);
+//   }
+//   console.log('result')
+//   res.status(200).send(result.rows);
+// })
+// } catch (err) {
+//   res.status(404).send(err);
+// }
