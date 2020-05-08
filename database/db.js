@@ -11,8 +11,8 @@ const pool = new Pool({
 
 //QUERIES HERE
 const queryArr = [
-'SELECT * FROM movie', 
-'SELECT * FROM actor WHERE Schema.movieid =$1', 
+'SELECT * FROM movie WHERE id = $1', 
+'SELECT * FROM actor WHERE Schema.movieid = $1', 
 'SELECT * FROM character WHERE movieid = $1',
 'SELECT * FROM actordescription WHERE actorid = $1',
 'SELECT * FROM quote WHERE characterid = $1',
@@ -20,7 +20,6 @@ const queryArr = [
 ];
 
 const getQuery = (id) => {
-  console.log('made it')
     for (let query of queryArr) {
       return new Promise((resolve, reject) => {
         pool.query(query, [id], (err, result) => {
@@ -29,13 +28,11 @@ const getQuery = (id) => {
             console.log(err);
             reject(err);
           }
-          console.log(result);
-          resolve(result);
+          resolve(result.rows);
         })
       })
     }
 }
-
 
 module.exports = {
 getQuery
