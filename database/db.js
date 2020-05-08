@@ -20,6 +20,7 @@ const queryArr = [
 ];
 
 const getQuery = (id) => {
+  console.log('made it')
     for (let query of queryArr) {
       return new Promise((resolve, reject) => {
         pool.query(query, [id], (err, result) => {
@@ -39,15 +40,15 @@ module.exports = {
 getQuery
 }; 
 
-//try {
-// let result = await pool.query(queryArr[1], [id], (err, result) => {
-//   if (err) {
-//     console.log(err)
-//     return (err);
-//   }
-//   console.log('result')
-//   res.status(200).send(result.rows);
-// })
-// } catch (err) {
-//   res.status(404).send(err);
-// }
+try {
+let result = await pool.query(queryArr[1], [id], (err, result) => {
+  if (err) {
+    console.log(err)
+    return (err);
+  }
+  console.log('result')
+  res.status(200).send(result.rows);
+})
+} catch (err) {
+  res.status(404).send(err);
+}
