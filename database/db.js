@@ -20,7 +20,6 @@ const queryArr = [
 ];
 
 const getQuery = (id) => {
-  console.log('made it')
     for (let query of queryArr) {
       return new Promise((resolve, reject) => {
         pool.query(query, [id], (err, result) => {
