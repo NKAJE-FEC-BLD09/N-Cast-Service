@@ -11,11 +11,22 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/api/:id', (req, res) => {
+app.get('/api/movie/:id', (req, res) => {
   let id = req.params.id;
-  // let query = db.getQuery
+  db.getMovieQuery(id)
+  .then((result) => {
+    res.status(200).send(result);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(404).send(err);
+  })
+});
 
-  db.getQuery(id)
+app.get('/api/actor/:movieid', (req, res) => {
+  let movieid = req.params.movieid;
+  console.log(movieid);
+  db.getActorQuery(movieid)
   .then((result) => {
     res.status(200).send(result);
   })
