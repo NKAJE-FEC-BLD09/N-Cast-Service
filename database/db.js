@@ -11,7 +11,7 @@ const pool = new Pool({
 
 //QUERIES HERE
 const queryArr = [
-'SELECT movietitle FROM movie WHERE id = $1', 
+'SELECT id, movietitle FROM movie WHERE id = $1', 
 'SELECT * FROM actor WHERE movieid = $1', 
 'SELECT * FROM character WHERE movieid = $1',
 'SELECT * FROM actordescription WHERE actorid = $1',
@@ -19,9 +19,31 @@ const queryArr = [
 'SELECT * FROM actorsinmovies WHERE movieid = $1'
 ];
 
-const getMovieQuery = (id) => {
+// const getQuery = (id) => {
+//   for (let query of queryArr) {
+//     console.log(query);
+//     getPromise = (id) => {
+//       return new Promise((resolve, reject) => {
+//             pool.query(query, [id], (err, result) => {
+//                 if (err) {
+//                   console.log(err);
+//                   reject(err);
+//                 }
+//                 resolve(result.rows);
+//             })
+//           })
+//     }
+//   }
+// }
+
+
+// module.export = {
+//   getQuery
+// }
+
+const getMovieQuery = (movieid) => {
   return new Promise((resolve, reject) => {
-    pool.query(queryArr[0], [id], (err, result) => {
+    pool.query(queryArr[0], [movieid], (err, result) => {
         if (err) {
           console.log(err);
           reject(err);
@@ -34,7 +56,6 @@ const getMovieQuery = (id) => {
 const getActorQuery = (movieid) => {
   return new Promise((resolve, reject) => {
     pool.query(queryArr[1], [movieid], (err, result) => {
-      console.log('in query');
         if (err) {
           console.log(err);
           reject(err);
@@ -44,10 +65,9 @@ const getActorQuery = (movieid) => {
   })
 }
 
-const getActorQuery = (movieid) => {
+const getCharacterQuery = (movieid) => {
   return new Promise((resolve, reject) => {
-    pool.query(queryArr[1], [movieid], (err, result) => {
-      console.log('in query');
+    pool.query(queryArr[2], [movieid], (err, result) => {
         if (err) {
           console.log(err);
           reject(err);
@@ -56,21 +76,50 @@ const getActorQuery = (movieid) => {
     })
   })
 }
+
+const getDescriptionQuery = (actorid) => {
+  return new Promise((resolve, reject) => {
+    pool.query(queryArr[3], [actorid], (err, result) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+        resolve(result.rows);
+    })
+  })
+}
+
+const getQuoteQuery = (characterid) => {
+  return new Promise((resolve, reject) => {
+    pool.query(queryArr[4], [characterid], (err, result) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+        resolve(result.rows);
+    })
+  })
+}
+
+
+const getInMovieQuery = (movieid) => {
+  return new Promise((resolve, reject) => {
+    pool.query(queryArr[5], [movieid], (err, result) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }
+        resolve(result.rows);
+    })
+  })
+}
+
 
 module.exports = {
 getMovieQuery,
-getActorQuery
+getActorQuery,
+getCharacterQuery,
+getDescriptionQuery,
+getQuoteQuery,
+getInMovieQuery
 }; 
-
-// try {
-// let result = await pool.query(queryArr[1], [id], (err, result) => {
-//   if (err) {
-//     console.log(err)
-//     return (err);
-//   }
-//   console.log('result')
-//   res.status(200).send(result.rows);
-// })
-// } catch (err) {
-//   res.status(404).send(err);
-// }
