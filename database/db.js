@@ -1,11 +1,11 @@
-let Promise = require('bluebird');
+const Promise = require('bluebird');
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  "user": "nkaj",
+  "user": "postgres",
   "host": "localhost",
-  "database": "nkaj",
-  "password": "password",
+  "database": "nkajfec",
+  "password": "amigored",
   "port": 5432,
 })
 
