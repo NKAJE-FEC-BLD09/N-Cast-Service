@@ -13,7 +13,7 @@ class CastTable extends React.Component {
 
       <div className='actorImage'>
         {this.props.actor.map((each) => (
-          <p>{each.image}</p>
+          <img src={each.image}/>
         ))}
       </div>
 

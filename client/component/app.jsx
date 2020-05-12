@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3003/api/movieinfo/3')
+    fetch('http://localhost:3003/api/movieinfo/1')
     .then(res => res.json())
     .then((data) => {
       this.setState({
