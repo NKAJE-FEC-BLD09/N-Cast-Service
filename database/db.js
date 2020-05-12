@@ -17,7 +17,7 @@ const queryArr = [
 'SELECT name, image FROM actor WHERE movieid = $1', 
 'SELECT * FROM character WHERE actorid = $1',
 'SELECT * FROM actordescription WHERE actorid = $1',
-'SELECT quote FROM quote INNER JOIN  WHERE movieid = $1'
+'SELECT quote, name FROM character c INNER JOIN quote q ON q.characterid = c.id WHERE actorid = $1'
 ];
 
 //inner join
