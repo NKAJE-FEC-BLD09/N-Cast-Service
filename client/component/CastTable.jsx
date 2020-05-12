@@ -10,6 +10,7 @@ class CastTable extends React.Component {
     console.log(this.props)
     return (
       <div>
+       
       </div>
     )
   }
