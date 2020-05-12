@@ -13,11 +13,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movie: '',
-      actor: '',
-      actorDescription: '',
-      character: '',
-      quote: '',
+      movie: [],
+      actor: [],
+      actorDescription: [],
+      character: [],
+      quote: [],
     }
   }
 
@@ -38,13 +38,13 @@ class App extends React.Component {
     })
   }
 
-  filterData() {
-    //loops over the array of objects that contain the actor info
-    //pull name and image
-    this.state.actor.map((each) => {
-      return each.name
-    })
-    }
+  // filterData() {
+  //   //loops over the array of objects that contain the actor info
+  //   //pull name and image
+  //   this.state.actor.map((each) => {
+  //     return each.name
+  //   })
+  //   }
 
   
 
@@ -57,7 +57,7 @@ class App extends React.Component {
         <section>
           <CastTable movie={this.state.movie} actor={this.state.actor} character={this.state.character} 
           quote={this.state.quote}
-          grabActors={this.state.filterData}/>
+          filterData={this.state.filterData}/>
         </section>
       </div>
     )

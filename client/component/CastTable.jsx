@@ -10,7 +10,9 @@ class CastTable extends React.Component {
     console.log(this.props)
     return (
       <div>
-       
+        {this.props.actor.map((each) => (
+          <p>{each.name}</p>
+    ))}
       </div>
     )
   }
