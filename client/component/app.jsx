@@ -38,26 +38,17 @@ class App extends React.Component {
     })
   }
 
-  // filterData() {
-  //   //loops over the array of objects that contain the actor info
-  //   //pull name and image
-  //   this.state.actor.map((each) => {
-  //     return each.name
-  //   })
-  //   }
+//search bar
 
   
 
   render () {
     return (
       <div>
-        Creation Station
         <h3>Cast</h3>
         <p>Cast overview, first billed only</p>
         <section>
-          <CastTable movie={this.state.movie} actor={this.state.actor} character={this.state.character} 
-          quote={this.state.quote}
-          filterData={this.state.filterData}/>
+          <CastTable movie={this.state.movie} actor={this.state.actor} character={this.state.character} />
         </section>
       </div>
     )
