@@ -3,6 +3,12 @@ import CastTable from './CastTable.jsx';
 //components
 //import $ from 'jquery';
 
+const data = {
+  movie: '',
+  actor: '',
+  character: '',
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,50 +23,51 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3003/api/movie/3')
+    fetch('http://localhost:3003/api/movieinfo/3')
     .then(res => res.json())
     .then((data) => {
       this.setState({
-        movie: data[0].movietitle
+        movie: data[0],
+        actor: data[1],
+        actorDescription: data
       })
     })
     .catch (err => {
       console.log('movie' + err)
     })
 
-    fetch('http://localhost:3003/api/actor/3')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({
-        actor: data
-      })
-    })
-    .catch (err => {
-      console.log('actor' + err)
-    })
+    // fetch('http://localhost:3003/api/actor/3')
+    // .then(res => res.json())
+    // .then((data) => {
+    //   this.setState({
+    //     actor: data
+    //   })
+    // })
+    // .catch (err => {
+    //   console.log('actor' + err)
+    // })
 
-    fetch('http://localhost:3003/api/character/3')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({
-        character: data
-      })
-    })
-    .catch (err => {
-      console.log('character' + err)
-    })
+    // fetch('http://localhost:3003/api/character/3')
+    // .then(res => res.json())
+    // .then((data) => {
+    //   this.setState({
+    //     character: data
+    //   })
+    // })
+    // .catch (err => {
+    //   console.log('character' + err)
+    // })
 
-    fetch('http://localhost:3003/api/inmovie/3')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({
-        actorsInMovie: data
-      })
-    })
-    .catch (err => {
-      console.log('inmovie' + err)
-    })
-
+    // fetch('http://localhost:3003/api/inmovie/3')
+    // .then(res => res.json())
+    // .then((data) => {
+    //   this.setState({
+    //     actorsInMovie: data
+    //   })
+    // })
+    // .catch (err => {
+    //   console.log('inmovie' + err)
+    // })
   }
 //onclick for modals
     // fetch('http://localhost:3003/api/description/3')
