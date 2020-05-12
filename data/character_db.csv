@@ -1,0 +1,23 @@
+id,name,movieid,actorid
+1,Lieutenant Chad,1,1
+2,Accountant,1,2
+3,Man in Wheelchair,1,3
+4,Sheila,1,4
+5,Film Buff Ethan,1,5
+6,G.W. McLintock,2,6
+7,Katherine McLintock,2,7
+8,Rebecca McLintock,2,8
+9,Jake BirnBaum,2,9
+10,Drago,2,10
+11,Derek Zoolander,3,11
+12,Hansel,3,12
+13,Matilda Jeffries,3,13
+14,Mugatu,3,14
+15,Katinka,3,15
+16,John Beckwith,4,12
+17,Jeremy Grey,4,16
+18,Claire Cleary,4,17
+19,Chazz Reinhold,4,14
+20,Sean Archer,5,18
+21,Caster Troy,5,19
+22,Eve Archer,5,20
