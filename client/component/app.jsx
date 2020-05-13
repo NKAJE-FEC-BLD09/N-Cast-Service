@@ -1,7 +1,6 @@
 import React from 'react';
 import CastTable from './CastTable.jsx';
-//components
-//import $ from 'jquery';
+import style from '../dist/main.css';
 
 const data = {
   movie: '',
