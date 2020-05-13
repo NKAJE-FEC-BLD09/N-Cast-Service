@@ -1,5 +1,5 @@
 import React from 'react';
-import CastTable from './CastTable.jsx';
+import Cast from './Cast.jsx';
 import style from '../dist/main.css';
 
 const data = {
@@ -45,9 +45,9 @@ class App extends React.Component {
     return (
       <div>
         <h3>Cast</h3>
-        <p>Cast overview, first billed only</p>
+        <p>Cast overview, first billed only:</p>
         <section>
-          <CastTable movie={this.state.movie} actor={this.state.actor} character={this.state.character} />
+          <Cast movie={this.state.movie} actor={this.state.actor} character={this.state.character} />
         </section>
       </div>
     )
