@@ -2,12 +2,6 @@ import React from 'react';
 import Cast from './Cast.jsx';
 import style from '../dist/main.css';
 
-const data = {
-  movie: '',
-  actor: '',
-  character: '',
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +9,6 @@ class App extends React.Component {
       movie: [],
       actor: [],
       actorDescription: [],
-      character: [],
       quote: [],
     }
   }
@@ -27,9 +20,8 @@ class App extends React.Component {
       this.setState({
         movie: data[0],
         actor: data[1],
-        character: data[2],
-        actorDescription: data[3],
-        quote: data[4],
+        actorDescription: data[2],
+        quote: data[3],
       })
     })
     .catch (err => {
@@ -42,12 +34,13 @@ class App extends React.Component {
   
 
   render () {
+    console.log(this.state)
     return (
       <div>
         <h3>Cast</h3>
         <p>Cast overview, first billed only:</p>
         <section>
-          <Cast movie={this.state.movie} actor={this.state.actor} character={this.state.character} />
+          <Cast actor={this.state.actor} />
         </section>
       </div>
     )

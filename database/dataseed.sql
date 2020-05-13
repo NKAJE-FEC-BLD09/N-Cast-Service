@@ -11,7 +11,7 @@ create table actor ( id INT PRIMARY KEY, name VARCHAR(50), movieid INT REFERENCE
 copy actor(id, name, movieid ) from 'C:\GitHub\N-Cast-Service\data\actor_db.csv' delimiter ',' csv header;
 
 create table character ( id INT PRIMARY KEY, name VARCHAR(20), movieid INT REFERENCES movie(id), actorid INT REFERENCES actor(id) );
-copy character(id, name, movieid, actorid ) from 'C:\GitHub\N-Cast-Service\data\character_db.csv' delimiter ',' csv header;
+copy character(id, charname, movieid, actorid ) from 'C:\GitHub\N-Cast-Service\data\character_db.csv' delimiter ',' csv header;
 
 create table quote ( id INT PRIMARY KEY, quote VARCHAR(250), characterid INT REFERENCES character(id) );
 copy quote(id, quote, characterid ) from 'C:\GitHub\N-Cast-Service\data\quote_db.csv' delimiter ',' csv header;

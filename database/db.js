@@ -14,10 +14,9 @@ const pool = new Pool({
 //actorid === movieid in ^ queries
 const queryArr = [
 'SELECT id, movietitle FROM movie WHERE id = $1', 
-'SELECT name, image FROM actor a INNER JOIN actorimage i ON i.actorid = a.id WHERE movieid = $1', 
-'SELECT * FROM character WHERE movieid = $1',
-'SELECT * FROM actordescription WHERE actorid = $1',
-'SELECT quote, name FROM character c INNER JOIN quote q ON q.characterid = c.id WHERE actorid = $1'
+'SELECT  ai.image, a.name, c.charname FROM actor a INNER JOIN character c ON a.id = c.actorid INNER JOIN actorimage ai ON ai.actorid = a.id WHERE a.movieid = $1',
+'SELECT description FROM actordescription ad INNER JOIN actor a ON ad.actorid = a.id WHERE movieid = $1',
+'SELECT quote, charname FROM character c INNER JOIN quote q ON q.characterid = c.id WHERE actorid = $1',
 ];
 
 //inner join
@@ -35,6 +34,7 @@ const getPromise = (query, id) => {
       if (err) {
         reject(err);
       }
+      console.log(results)
       resolve(results.rows);
     })
   })
