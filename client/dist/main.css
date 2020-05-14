@@ -1,7 +1,38 @@
-.actorImage {
-  max-height: 20px
+.cast {
+margin-top: 5rem;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.words {
+padding-top: 2rem;
+font-family: Arial, Helvetica, sans-serif;
 }
 
 .table {
-  columns: 3
+  width: 105rem;
+  margin-top: 1rem;
+  margin-left: 0rem;
 }
+.actorImage {
+  height: 2rem;
+  width: 2rem;
+}
+.image {
+  width: 1rem;
+}
+
+.actorName {
+  text-align: left;
+}
+
+.dots {
+width: 1rem;
+}
+
+.characterName {
+text-align: left;
+width: 36rem;
+}
+
+
+/* refactor for page fluidity */

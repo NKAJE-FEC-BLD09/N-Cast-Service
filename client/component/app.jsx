@@ -37,8 +37,6 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <div>
-        <h3>Cast</h3>
-        <p>Cast overview, first billed only:</p>
         <section>
           <Cast actor={this.state.actor} />
         </section>

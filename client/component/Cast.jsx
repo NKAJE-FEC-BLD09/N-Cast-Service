@@ -13,10 +13,10 @@ class Cast extends React.Component {
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
-        <td><img className='actorImage' src={each.image}/></td>
-        <td>{each.name}</td>
-        <td>...</td>
-        <td>{each.charname}</td>
+        <td className='image'><img className='actorImage' src={each.image}/></td>
+        <td className='actorName'>{each.name}</td>
+        <td className='dots'>...</td>
+        <td className='characterName'>{each.charname}</td>
       </tr>
       )
     });
@@ -31,8 +31,11 @@ class Cast extends React.Component {
       )
     } else {
     return (
-      <div>
-        <table className='table table-striped'>
+      <div className ='app'>
+        <div className='container'>
+        <h3 className='cast'>Cast</h3>
+        <p className='words'>Cast overview, first billed only:</p>
+        <table className='table table-striped table-border table-dark' >
           {this.createTable()}
           {/* {this.props.actor.map((each) => 
             <CastTile each={each}/>
@@ -42,6 +45,7 @@ class Cast extends React.Component {
             <CastTile eachCharacter={each}/>
           ))} */}
         </table>
+        </div>
       </div> 
     );
   }
