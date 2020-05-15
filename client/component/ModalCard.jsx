@@ -33,3 +33,5 @@ class ModalCard extends React.Component {
 }
 
 export default ModalCard;
+
+//contact info and ||| can be broken up into seperate <divs>/<spans> 
