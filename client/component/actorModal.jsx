@@ -5,6 +5,7 @@ import ModalCard from './ModalCard.jsx';
 class ActorModal extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
@@ -16,7 +17,7 @@ class ActorModal extends React.Component {
       return (
           <div className='actorModal' >
             <div><ModalCard actorName={this.props.actorName} actorImage={this.props.actorImage} actor={this.props.actor} 
-            actorDescription={this.props.actorDescriptoin} show={this.props.show}/></div>
+            actorDescription={this.props.actorDescription} show={this.props.show}/></div>
           </div>
       )
     }
