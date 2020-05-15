@@ -15,7 +15,7 @@ class ActorModal extends React.Component {
     } else {
       return (
           <div className='actorModal' >
-            <div><ModalCard actorName={this.props.actorName} actor={this.props.actor} 
+            <div><ModalCard actorName={this.props.actorName} actorImage={this.props.actorImage} actor={this.props.actor} 
             actorDescription={this.props.actorDescriptoin} show={this.props.show}/></div>
           </div>
       )

@@ -6,19 +6,22 @@ class Cast extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: false,
-      actorName: ''
+      show: true,
+      actorName: '',
+      actorImage: '',
+      charname: ''
     }
+
   }
 
-  
-  getModal(name) {
+  getModal(image, name, charname) {
     this.setState({
       show: true,
-      actorName: name
+      actorImage: image,
+      actorName: name,
+      charname: charname
+    }, () => {
     })
-    console.log(this.state.show)
-    console.log(this.state.actorName)
   }
 
   closeModal() {
@@ -30,10 +33,10 @@ class Cast extends React.Component {
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
-        <td className='image'><img className='actorImage' src={each.image} onClick={this.getModal.bind(this, each.name)}/></td>
-        <td className='actorName' onClick={this.getModal.bind(this, each.name)}>{each.name}</td>
+        <td className='image'><img className='actorImage' src={each.image} onClick={this.getModal.bind(this, each.image, each.name, each.charname)}/></td>
+        <td className='actorName' onClick={this.getModal.bind(this, each.image, each.name, each.charname)}>{each.name}</td>
         <td className='dots'>...</td>
-        <td className='characterName' onClick={this.getModal.bind(this, each.charname)}>{each.charname}</td>
+        <td className='characterName' onClick={this.getModal.bind(this, each.image, each.name, each.charname)}>{each.charname}</td>
       </tr>
       )
     });
@@ -71,7 +74,8 @@ class Cast extends React.Component {
 
         <div>
           <ActorModal actor={this.props.actor} actorDescription={this.props.actorDescription} 
-          show={this.state.show} actorName={this.state.actorName} closeModal={this.closeModal.bind(this)}/>
+          show={this.state.show} actorName={this.state.actorName} 
+          actorImage={this.state.actorImage} closeModal={this.closeModal.bind(this)}/>
         </div>
       </div> 
     );

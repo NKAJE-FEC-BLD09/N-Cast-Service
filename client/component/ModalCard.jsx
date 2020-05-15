@@ -10,7 +10,10 @@ class ModalCard extends React.Component {
   render() {
     return(
       <div>
-        <div>{this.props.actorName}</div>
+        <div className='aName'>{this.props.actorName}</div>
+        <div>
+          <div><img className='image' src={this.props.actorImage}/></div>
+        </div>
       </div>
     )
   }
