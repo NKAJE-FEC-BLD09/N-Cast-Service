@@ -11,20 +11,21 @@ class ModalCard extends React.Component {
     return this.props.actorDescription.map((eachDescription) => {
       if (eachDescription.name === this.props.actorName) {
       return (
-        <div className='description'>{eachDescription.description}</div>
+        <div>{eachDescription.description}</div>
       )
     }
   });
 }
   
   render() {
-    return(
+    return (
       <div className='container'>
       <div className='card'>
         <div className='aName'>{this.props.actorName}</div>
         <div className='underaName'> Actor | Producer | Writer </div>
         <div className='imageBorder'><img className='image' src={this.props.actorImage}/></div>
-        <div>{this.getDescription()}</div>     
+        <div  className='description'>{this.getDescription()}</div>
+        <div className='footerStuff'>Contact Info: View agent, publicits, legal on IMDbPro</div>    
       </div>
       </div>
     )
