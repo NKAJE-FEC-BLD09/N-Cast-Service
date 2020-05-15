@@ -70,6 +70,7 @@ class Cast extends React.Component {
           ))} */}
           </tbody>
         </table>
+        {/* <div className='fullCast'>See full cast >></div> */}
         </div>
 
         <div>

@@ -32,6 +32,11 @@ position: absolute; */
   width: 25rem;
 }
 
+.actorName:hover {
+  color: #136CB2;
+  text-decoration: underline;
+}
+
 .dots {
 width: 1rem;
 }
@@ -41,20 +46,39 @@ text-align: left;
 width: 36rem;
 }
 
-.actorModal {
-background-color: white;
-height: 50rem;
+.characterName:hover {
+  color: #136CB2;
+  text-decoration: underline;
 }
 
+.fullCast {
+  padding-top: 20rem;
+  color: #136CB2;
+}
 
 /* ActorModal */
+.actorModal {
+  background-color: white;
+  height: 50rem;
+  }
+
 .container {
   margin-top: 1rem;
 }
 .card {
   border: solid black;
   height: 35rem;
+  width: 58rem;
 }
+
+.xbutton {
+object-fit: cover;
+object-position:-20% 0;
+width: 2rem;
+height: 2rem;
+margin-left: 56rem;
+}
+
 .aName {
   font-size: 2rem;
 }
@@ -77,7 +101,12 @@ height: 50rem;
   padding-top: 2rem;
 }
 
+.fullBio{
+color: #136CB2
+}
+
 .footerStuff {
   padding-top: 5rem;
   color: #136CB2;
 }
+

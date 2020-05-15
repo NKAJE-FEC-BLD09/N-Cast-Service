@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './app.jsx';
-import ModalCard from './ModalCard.jsx';
+import ModalCard from './ModalCardActor.jsx';
 
 class ActorModal extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class ActorModal extends React.Component {
       return (
           <div className='actorModal' >
             <div><ModalCard actorName={this.props.actorName} actorImage={this.props.actorImage} actor={this.props.actor} 
-            actorDescription={this.props.actorDescription} show={this.props.show}/></div>
+            actorDescription={this.props.actorDescription} show={this.props.show} closeModal={this.props.closeModal}/></div>
           </div>
       )
     }

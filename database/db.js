@@ -34,6 +34,7 @@ const getPromise = (query, id) => {
       if (err) {
         reject(err);
       }
+      console.log(results)
       resolve(results.rows);
     })
   })
