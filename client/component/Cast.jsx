@@ -1,28 +1,46 @@
 import React from 'react';
-import App from './app.jsx';
-import style from '../dist/main.css';
 import CastTile from './CastTile.jsx';
+import ActorModal from './ActorModal.jsx';
 
 class Cast extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
+    this.state = {
+      show: false,
+      actorName: ''
+    }
+  }
+
+  
+  getModal(name) {
+    this.setState({
+      show: true,
+      actorName: name
+    })
+    console.log(this.state.show)
+    console.log(this.state.actorName)
+  }
+
+  closeModal() {
+    this.setState({show: false})
+    console.log(this.state.show);
   }
 
   createTable() {
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
-        <td className='image'><img className='actorImage' src={each.image}/></td>
-        <td className='actorName'>{each.name}</td>
+        <td className='image'><img className='actorImage' src={each.image} onClick={this.getModal.bind(this, each.name)}/></td>
+        <td className='actorName' onClick={this.getModal.bind(this, each.name)}>{each.name}</td>
         <td className='dots'>...</td>
-        <td className='characterName'>{each.charname}</td>
+        <td className='characterName' onClick={this.getModal.bind(this, each.charname)}>{each.charname}</td>
       </tr>
       )
     });
   }
 
-  render () {
+
+  render () { 
     if (this.props.actor.length === 0) {
       return (
         <div>
@@ -33,10 +51,13 @@ class Cast extends React.Component {
     return (
       <div className ='app'>
         <div className='container'>
+
         <h3 className='cast'>Cast</h3>
         <p className='words'>Cast overview, first billed only:</p>
-        <table className='table table-striped table-border table-dark' >
-          {this.createTable()}
+
+        <table className='table table-striped table-border table-light table-responsive'>
+          <tbody>
+            {this.createTable()}
           {/* {this.props.actor.map((each) => 
             <CastTile each={each}/>
           ))} */}
@@ -44,7 +65,13 @@ class Cast extends React.Component {
           {/* {this.props.character.map((each) => (
             <CastTile eachCharacter={each}/>
           ))} */}
+          </tbody>
         </table>
+        </div>
+
+        <div>
+          <ActorModal actor={this.props.actor} actorDescription={this.props.actorDescription} 
+          show={this.state.show} actorName={this.state.actorName} closeModal={this.closeModal.bind(this)}/>
         </div>
       </div> 
     );
@@ -55,8 +82,9 @@ class Cast extends React.Component {
 export default Cast;
 
 // //is this where the table goes or is it the castTile
-//refactor 
+//refactor to the tile way
 
+//this works but this.props.character.name doesn't
 // {this.props.character.map((each) => (
 // <td>{each.name}</td>
 // ))}

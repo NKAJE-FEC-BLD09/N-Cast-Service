@@ -31,14 +31,11 @@ class App extends React.Component {
 
 //search bar
 
-  
-
   render () {
-    console.log(this.state)
     return (
       <div>
         <section>
-          <Cast actor={this.state.actor} />
+          <Cast actor={this.state.actor} actorDescription={this.state.actorDescription}/>
         </section>
       </div>
     )

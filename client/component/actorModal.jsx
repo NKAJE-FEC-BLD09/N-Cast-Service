@@ -1,18 +1,29 @@
 import React from 'react';
 import App from './app.jsx';
+import ModalCard from './ModalCard.jsx';
 
-class actorModal extends React.Component {
+class ActorModal extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    return (
-      <div>
-        actorModal
-      </div>
-    )
+    if (this.props.show === false) {
+      return (
+        null
+      )
+    } else {
+      return (
+          <div className='actorModal' >
+            <div><ModalCard actorName={this.props.actorName} actor={this.props.actor} 
+            actorDescription={this.props.actorDescriptoin} show={this.props.show}/></div>
+          </div>
+      )
+    }
   }
 }
 
-export default actorModal;
+export default ActorModal;
+
+
+//how do I get the actor name that is being clicked on to render here too--> where is there a connection point to note the actor name that is in the tile to the modal 
