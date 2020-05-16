@@ -1,5 +1,5 @@
 import React from 'react';
-import CastTile from './CastTile.jsx';
+// import CastTile from './CastTile.jsx';
 import ActorModal from './ActorModal.jsx';
 import CharacterModal from './CharacterModal.jsx';
 import FullCastModal from './FullCastModal.jsx';
@@ -52,10 +52,12 @@ class Cast extends React.Component {
   }
 
   createTable() {
-    //if actor arr length is greater than 3 
-    //do not render more than three
-
     return this.props.actor.map((each, i) => {
+        if (i >= 3) {
+          return (
+            null
+          )
+        }
       return (
       <tr key={i}>
         <td className='nimage'><img className='nactorImage' src={each.image} onClick={ (e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}/></td>
@@ -109,8 +111,8 @@ class Cast extends React.Component {
           actorImage={this.state.actorImage} closeModal={this.closeModal}/>
         </div>
         <div>
-          <FullCastModal actor={this.props.actor} showFullCast={this.state.showFullCast} 
-          closeModal={this.closeModal}/>
+          <FullCastModal actor={this.props.actor} showFullCast={this.state.showFullCast} getModal={this.getModal}
+          getModalChar={this.getModalChar.bind(this)} closeModal={this.closeModal}/>
         </div>
       </div> 
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import FullCastCard from './FullCastCard.jsx'
 
 class FullCastModal extends React.Component {
   constructor(props) {
@@ -12,7 +13,10 @@ class FullCastModal extends React.Component {
       )
     } else {
       return (
-        <div>stuff</div>
+        <div>
+          <FullCastCard actor={this.props.actor} getModal={this.props.getModal} 
+          closeModal={this.props.closeModal} getModalChar={this.props.getModalChar}/>
+        </div>
       )
     }
   }

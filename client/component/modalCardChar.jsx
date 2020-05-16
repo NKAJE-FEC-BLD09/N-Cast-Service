@@ -11,7 +11,7 @@ class ModalCardChar extends React.Component {
     return this.props.quote.map((eachQuote, i) => {
       if (eachQuote.charname === this.props.charname) {
         return (
-          <tr key='i'>
+          <tr key={i}>
             <td>{eachQuote.charname} : </td>
             <td> {eachQuote.quote}</td>
           </tr>
