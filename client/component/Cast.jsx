@@ -80,10 +80,11 @@ class Cast extends React.Component {
 
           {/* {this.props.character.map((each) => (
             <CastTile eachCharacter={each}/>
-          ))} */}
+          ))} */} 
           </tbody>
+          <div className='nfullCast'>See full cast >></div>
         </table>
-        {/* <div className='fullCast'>See full cast >></div> */}
+      
         </div>
 
         <div>
