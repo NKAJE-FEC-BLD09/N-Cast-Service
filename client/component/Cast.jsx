@@ -7,11 +7,22 @@ class Cast extends React.Component {
     super(props)
     this.state = {
       show: false,
+      showChar: false,
       actorName: '',
       actorImage: '',
-      charname: ''
+      charname: '',
     }
+    this.getModal = this.getModal.bind(this)
 
+  }
+
+  getModalChar(image, name, charname) {
+    this.setState({
+      showChar: true,
+      actorImage: image,
+      actorName: name,
+      charname: charname
+    })
   }
 
   getModal(image, name, charname) {
@@ -20,7 +31,6 @@ class Cast extends React.Component {
       actorImage: image,
       actorName: name,
       charname: charname
-    }, () => {
     })
   }
 
@@ -33,10 +43,10 @@ class Cast extends React.Component {
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
-        <td className='image'><img className='actorImage' src={each.image} onClick={this.getModal.bind(this, each.image, each.name, each.charname)}/></td>
-        <td className='actorName' onClick={this.getModal.bind(this, each.image, each.name, each.charname)}>{each.name}</td>
+        <td className='image'><img className='actorImage' src={each.image} onClick={ (e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}/></td>
+        <td className='actorName' onClick={(e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}>{each.name}</td>
         <td className='dots'>...</td>
-        <td className='characterName' onClick={this.getModal.bind(this, each.image, each.name, each.charname)}>{each.charname}</td>
+        <td className='characterName' onClick={(e) => {e.preventDefault(); this.getModalChar(each.image, each.name, each.charname)}}>{each.charname}</td>
       </tr>
       )
     });
