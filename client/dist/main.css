@@ -128,3 +128,8 @@ color: #136CB2
   border: solid grey;
   margin: 3%;
 }
+
+.ncName {
+  font-size: 2rem;
+  text-align: center;
+}

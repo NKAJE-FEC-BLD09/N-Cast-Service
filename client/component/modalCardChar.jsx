@@ -25,8 +25,8 @@ class ModalCardChar extends React.Component {
       <div className='container'>
       <div className='ncard'>
       <span><img className='nxbutton' src='https://cdn4.iconfinder.com/data/icons/xbox-one-thin-line-set/64/ico-xbx-bttn-x-512.png' onClick={this.props.closeModal}/></span>
-        <div className='naName'>{this.props.charname}</div>
-        <div className='nimageBorder'><img className='image' src={this.props.actorImage}/></div>
+        <div className='ncName'>{this.props.charname}</div>
+        {/* <div className='nimageBorder'><img className='image' src={this.props.actorImage}/></div> */}
         <div>
         <table className='ntableQuote table-light table-striped table-border'>
           <tbody>
@@ -44,4 +44,5 @@ export default ModalCardChar;
 
 
 
-//FIXES
+//TODO
+//set up an alternate for if there are no quotes from the character

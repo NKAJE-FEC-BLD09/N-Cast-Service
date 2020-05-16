@@ -22,7 +22,7 @@ class FullCastCard extends React.Component {
   render() {
     return (
       <div className='container'>
-      <div className='ncard'>
+      <div className='ncardFull'>
       <span><img className='nxbutton' src='https://cdn4.iconfinder.com/data/icons/xbox-one-thin-line-set/64/ico-xbx-bttn-x-512.png' onClick={this.props.closeModal}/></span>
         <table className='nFulltable table-striped table-border table-light table-responsive'>
           <tbody>
