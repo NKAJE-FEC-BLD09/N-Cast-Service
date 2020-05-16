@@ -34,7 +34,6 @@ font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   width: 25rem;
 }
-
 .nactorName:hover {
   color: #136CB2;
   text-decoration: underline;
@@ -48,7 +47,6 @@ width: 1rem;
 text-align: left;
 width: 36rem;
 }
-
 .ncharacterName:hover {
   color: #136CB2;
   text-decoration: underline;
@@ -58,7 +56,6 @@ width: 36rem;
   padding-top: 1rem;
   color: #136CB2;
 }
-
 .nfullCast:hover {
   text-decoration: underline;
 }
@@ -116,6 +113,9 @@ margin-left: 94%;
 
 .nfullBio{
 color: #136CB2
+}
+.fullBio:hover {
+  text-decoration: underline;
 }
 
 .nfooterStuff {

@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './app.jsx';
-import Cast from './Cast.jsx';
+import Cast from './CastTable.jsx';
 
 class CastTile extends React.Component {
   constructor(props) {

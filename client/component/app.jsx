@@ -1,6 +1,6 @@
 import React from 'react';
-import Cast from './Cast.jsx';
-import style from '../dist/main.css';
+import CastTable from './CastTable.jsx';
+import '../dist/main.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends React.Component {
     return (
       <div>
         <section>
-          <Cast actor={this.state.actor} actorDescription={this.state.actorDescription} quote={this.state.quote}/>
+          <CastTable actor={this.state.actor} actorDescription={this.state.actorDescription} quote={this.state.quote}/>
         </section>
       </div>
     )

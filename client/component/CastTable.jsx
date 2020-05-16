@@ -2,6 +2,7 @@ import React from 'react';
 import CastTile from './CastTile.jsx';
 import ActorModal from './ActorModal.jsx';
 import CharacterModal from './CharacterModal.jsx';
+import FullCastModal from './FullCastModal.jsx';
 
 class Cast extends React.Component {
   constructor(props) {
@@ -9,12 +10,19 @@ class Cast extends React.Component {
     this.state = {
       show: false,
       showChar: false,
+      showFullCast: false,
       actorName: '',
       actorImage: '',
       charname: '',
     }
     this.getModal = this.getModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+  }
+
+  getFullCastModal() {
+    this.setState({
+      showFullCast: true,
+    })
   }
 
   getModalChar(image, name, charname) {
@@ -38,11 +46,15 @@ class Cast extends React.Component {
   closeModal() {
     this.setState({
       show: false,
-      showChar: false
+      showChar: false,
+      showFullCast: false
     })
   }
 
   createTable() {
+    //if actor arr length is greater than 3 
+    //do not render more than three
+
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
@@ -82,9 +94,8 @@ class Cast extends React.Component {
             <CastTile eachCharacter={each}/>
           ))} */} 
           </tbody>
-          <div className='nfullCast'>See full cast >></div>
+          <div className='nfullCast' onClick={this.getFullCastModal.bind(this)}>See full cast >></div>
         </table>
-      
         </div>
 
         <div>
@@ -96,6 +107,10 @@ class Cast extends React.Component {
           <CharacterModal actor={this.props.actor} showChar={this.state.showChar} 
           actorName={this.state.actorName} quote={this.props.quote} charname={this.state.charname}
           actorImage={this.state.actorImage} closeModal={this.closeModal}/>
+        </div>
+        <div>
+          <FullCastModal actor={this.props.actor} showFullCast={this.state.showFullCast} 
+          closeModal={this.closeModal}/>
         </div>
       </div> 
     );
