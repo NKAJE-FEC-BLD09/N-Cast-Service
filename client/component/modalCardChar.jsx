@@ -9,11 +9,11 @@ class ModalCardChar extends React.Component {
 
   getQuote() {
     return this.props.quote.map((eachQuote, i) => {
-      console.log('here')
       if (eachQuote.charname === this.props.charname) {
         return (
-          <tr>
-            <td>{eachQuote.quote}</td>
+          <tr key='i'>
+            <td>{eachQuote.charname} : </td>
+            <td> {eachQuote.quote}</td>
           </tr>
         )
       }
@@ -28,11 +28,11 @@ class ModalCardChar extends React.Component {
         <div className='naName'>{this.props.charname}</div>
         <div className='nimageBorder'><img className='image' src={this.props.actorImage}/></div>
         <div>
-          <table className='ntable table-light table-striped'>
-            <tbody>
-              {this.getQuote()}
-            </tbody>
-          </table>
+        <table className='ntableQuote table-light table-striped table-border'>
+          <tbody>
+            {this.getQuote()}
+          </tbody>
+        </table>
         </div>    
       </div>
       </div>
@@ -45,5 +45,3 @@ export default ModalCardChar;
 
 
 //FIXES
-//exit button
-//render description in the modal in table form
