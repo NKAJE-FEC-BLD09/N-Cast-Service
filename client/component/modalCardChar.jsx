@@ -13,7 +13,7 @@ class ModalCardChar extends React.Component {
         return (
           <tr key={i}>
             <td>{eachQuote.charname} : </td>
-            <td> {eachQuote.quote}</td>
+            <td>{eachQuote.quote}</td>
           </tr>
         )
       }
@@ -28,6 +28,7 @@ class ModalCardChar extends React.Component {
         <div className='ncName'>{this.props.charname}</div>
         {/* <div className='nimageBorder'><img className='image' src={this.props.actorImage}/></div> */}
         <div>
+          <div className='nquotes'>Character Quotes:</div>
         <table className='ntableQuote table-light table-striped table-border'>
           <tbody>
             {this.getQuote()}
