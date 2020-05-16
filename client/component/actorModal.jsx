@@ -5,7 +5,6 @@ import ModalCard from './ModalCardActor.jsx';
 class ActorModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.closeModal = this.closeModal.bind(this)
   }
 

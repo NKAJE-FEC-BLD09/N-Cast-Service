@@ -4,6 +4,7 @@ import ModalCardChar from './ModalCardChar.jsx'
 class characterModal extends React.Component {
   constructor(props) {
     super(props);
+
     this.closeModalChar = this.closeModalChar.bind(this)
   }
 

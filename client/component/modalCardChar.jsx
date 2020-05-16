@@ -4,20 +4,21 @@ import { each } from 'bluebird';
 class ModalCardChar extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
   }
 
-  // getQuote() {
-  //   console.log(this.props)
-  //   return this.props.quote.map((eachQuote, i) => {
-  //     if (eachQuote.charname === this.props.charname) {
-  //       return (
-  //         <tr>
-  //           <td>{eachQuote.quote}</td>
-  //         </tr>
-  //       )
-  //     }
-  //   })
-  // }
+  getQuote() {
+    console.log(this.props)
+    return this.props.quote.map((eachQuote, i) => {
+      if (eachQuote.charname === this.props.charname) {
+        return (
+          <tr>
+            <td>{eachQuote.quote}</td>
+          </tr>
+        )
+      }
+    })
+  }
 
   render() {
     return (

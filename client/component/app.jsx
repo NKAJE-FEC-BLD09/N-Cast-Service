@@ -29,7 +29,9 @@ class App extends React.Component {
     })
   }
 
-//search bar
+// add search bar
+  //if movie is in the list of 100 (map over list) 
+  //send the id to the fetch request
 
   render () {
     return (

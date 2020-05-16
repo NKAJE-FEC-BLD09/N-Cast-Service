@@ -5,6 +5,7 @@ import ActorModal from 'react';
 class ModalCard extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
   }
 
   getDescription () {
