@@ -6,6 +6,11 @@ class ActorModal extends React.Component {
   constructor(props) {
     super(props);
     console.log(props);
+    this.closeModal = this.closeModal.bind(this)
+  }
+
+  closeModal() {
+    this.setState({show: false})
   }
 
   render() {
@@ -15,9 +20,9 @@ class ActorModal extends React.Component {
       )
     } else {
       return (
-          <div className='actorModal'>
+          <div className='nactorModal'>
             <div><ModalCard actorName={this.props.actorName} actorImage={this.props.actorImage} actor={this.props.actor} 
-            actorDescription={this.props.actorDescription} show={this.props.show} closeModal={this.props.closeModal}/></div>
+            actorDescription={this.props.actorDescription} show={this.props.show} closeModal={this.closeModal}/></div>
           </div>
       )
     }

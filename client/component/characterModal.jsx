@@ -1,28 +1,29 @@
 import React from 'react';
-import App from './app.jsx';
+import ModalCardChar from './ModalCardChar.jsx'
 
 class characterModal extends React.Component {
   constructor(props) {
     super(props);
+    this.closeModalChar = this.closeModalChar.bind(this)
   }
 
-  getQuote()  {
-    //map over quote to get the stuff for each character
+  closeModalChar() {
+    this.setState({showChar: false})
   }
 
   render() {
     if (this.props.showChar === false) {
       return (
-        <div>notworkingyet</div>
+        null
       )
     } else {
       return (
         <div>
-          <div className='actorModal' >
+          <div className='nactorModal' >
               <div>
-                <ModalCardChar actorName={this.props.actorName} actorImage={this.props.actorImage} actor={this.props.actor} 
-              actorDescription={this.props.actorDescription} showChar={this.props.showChar} closeModal={this.props.closeModal}
-              quote={this.getQuote()}/>
+                <ModalCardChar actorName={this.props.actorName} actor={this.props.actor} 
+              actorDescription={this.props.actorDescription} showChar={this.props.showChar} closeModalChar={this.closeModalChar}
+              quote={this.props.quote} charname={this.props.charname}/>
               </div>
             </div>
         </div>

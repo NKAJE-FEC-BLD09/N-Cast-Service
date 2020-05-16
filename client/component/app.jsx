@@ -35,7 +35,7 @@ class App extends React.Component {
     return (
       <div>
         <section>
-          <Cast actor={this.state.actor} actorDescription={this.state.actorDescription}/>
+          <Cast actor={this.state.actor} actorDescription={this.state.actorDescription} quote={this.state.quote}/>
         </section>
       </div>
     )

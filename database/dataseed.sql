@@ -22,4 +22,5 @@ copy actordescription(id, description, actorid ) from 'C:\GitHub\N-Cast-Service\
 create table actorimage (id INT PRIMARY KEY, image VARCHAR(250), actorid INT REFERENCES actor(id) );
 copy actorimage(id, image, actorid ) from 'C:\GitHub\N-Cast-Service\database\data\actorimage.csv' delimiter ',' csv header;
 
+--add in faker data
 -- for loop to insert faker stuff

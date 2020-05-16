@@ -1,6 +1,7 @@
 import React from 'react';
 import CastTile from './CastTile.jsx';
 import ActorModal from './ActorModal.jsx';
+import CharacterModal from './CharacterModal.jsx';
 
 class Cast extends React.Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class Cast extends React.Component {
       charname: '',
     }
     this.getModal = this.getModal.bind(this)
-
   }
 
   getModalChar(image, name, charname) {
@@ -34,19 +34,15 @@ class Cast extends React.Component {
     })
   }
 
-  closeModal() {
-    this.setState({show: false})
-    console.log(this.state.show);
-  }
 
   createTable() {
     return this.props.actor.map((each, i) => {
       return (
       <tr key={i}>
-        <td className='image'><img className='actorImage' src={each.image} onClick={ (e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}/></td>
-        <td className='actorName' onClick={(e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}>{each.name}</td>
-        <td className='dots'>...</td>
-        <td className='characterName' onClick={(e) => {e.preventDefault(); this.getModalChar(each.image, each.name, each.charname)}}>{each.charname}</td>
+        <td className='nimage'><img className='nactorImage' src={each.image} onClick={ (e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}/></td>
+        <td className='nactorName' onClick={(e) => {e.preventDefault(); this.getModal(each.image, each.name, each.charname)}}>{each.name}</td>
+        <td className='ndots'>...</td>
+        <td className='ncharacterName' onClick={(e) => {e.preventDefault(); this.getModalChar(each.image, each.name, each.charname)}}>{each.charname}</td>
       </tr>
       )
     });
@@ -65,10 +61,10 @@ class Cast extends React.Component {
       <div className ='app'>
         <div className='container'>
 
-        <h3 className='cast'>Cast</h3>
-        <p className='words'>Cast overview, first billed only:</p>
+        <h3 className='ncast'>Cast</h3>
+        <p className='nwords'>Cast overview, first billed only:</p>
 
-        <table className='table table-striped table-border table-light table-responsive'>
+        <table className='ntable table-striped table-border table-light table-responsive'>
           <tbody>
             {this.createTable()}
           {/* {this.props.actor.map((each) => 
@@ -86,7 +82,12 @@ class Cast extends React.Component {
         <div>
           <ActorModal actor={this.props.actor} actorDescription={this.props.actorDescription} 
           show={this.state.show} actorName={this.state.actorName} 
-          actorImage={this.state.actorImage} closeModal={this.closeModal.bind(this)}/>
+          actorImage={this.state.actorImage}/>
+        </div>
+        <div>
+          <CharacterModal actor={this.props.actor} showChar={this.state.showChar} 
+          actorName={this.state.actorName} quote={this.props.quote} charname={this.state.charname}
+          actorImage={this.state.actorImage}/>
         </div>
       </div> 
     );
