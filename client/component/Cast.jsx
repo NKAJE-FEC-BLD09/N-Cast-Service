@@ -14,6 +14,7 @@ class Cast extends React.Component {
       charname: '',
     }
     this.getModal = this.getModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   getModalChar(image, name, charname) {
@@ -34,6 +35,12 @@ class Cast extends React.Component {
     })
   }
 
+  closeModal() {
+    this.setState({
+      show: false,
+      showChar: false
+    })
+  }
 
   createTable() {
     return this.props.actor.map((each, i) => {
@@ -82,12 +89,12 @@ class Cast extends React.Component {
         <div>
           <ActorModal actor={this.props.actor} actorDescription={this.props.actorDescription} 
           show={this.state.show} actorName={this.state.actorName} 
-          actorImage={this.state.actorImage}/>
+          actorImage={this.state.actorImage} closeModal={this.closeModal}/>
         </div>
         <div>
           <CharacterModal actor={this.props.actor} showChar={this.state.showChar} 
           actorName={this.state.actorName} quote={this.props.quote} charname={this.state.charname}
-          actorImage={this.state.actorImage}/>
+          actorImage={this.state.actorImage} closeModal={this.closeModal}/>
         </div>
       </div> 
     );
