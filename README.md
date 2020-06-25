@@ -15,20 +15,19 @@ To Run Application:
 
 Features Include:
 
-Homepage
+Homepage     -Displays a table that contains actor image, actor name, and character name
 <img src='./FECHOME.jpg'>
-     -Displays a table that contains actor image, actor name, and character name
-     -Both names are clickable and leads to their respective modals
 
 
-Actor Page
+
+Actor Page    - Displays actor name, description, image
 <img src='./FECACTORPG.jpg'>
-    - Displays actor name, description, image
 
 
-Character Page
+
+Character Page    - Displays character name and quotes
 <img src='./FECCHARACTERPG.jpg'>
-    - Displays character name and quotes
+
 
 
     Future Features/Tasks:
