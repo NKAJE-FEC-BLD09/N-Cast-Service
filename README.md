@@ -1,9 +1,9 @@
 # N-Cast-Service
 
 Technical Requirements/dependencies
-Client: React, Webpack/Babel, Bootstrap 
-Server: Express, Nodemon 
-Database: PostgreSQL 
+ - Client: React, Webpack/Babel, Bootstrap 
+ - Server: Express, Nodemon 
+ - Database: PostgreSQL 
 
 To Get Data:
 install postgres and then run the script 'npm run database'
