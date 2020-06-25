@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3003/api/movieinfo/1')
+    fetch('http://localhost:3003/api/movieinfo/2')
     .then(res => res.json())
     .then((data) => {
       this.setState({
@@ -35,7 +35,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='whole'>
         <section>
           <CastTable actor={this.state.actor} actorDescription={this.state.actorDescription} quote={this.state.quote}/>
         </section>
