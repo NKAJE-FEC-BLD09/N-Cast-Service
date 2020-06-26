@@ -1,5 +1,7 @@
 # N-Cast-Service
 
+The task at hand for N-Cast-Service was to recreate a module from and IMDB webpage. In this cast it was the cast service.
+
 Technical Requirements/dependencies
  - Client: React, Webpack/Babel, Bootstrap 
  - Server: Express, Nodemon 
